@@ -32,10 +32,12 @@ package bankaccountadvanced;
 
 import java.util.ArrayList;
 
-/**
-   This program tests the BankAccount class and
-   its subclasses. 
+/*
+   *This program tests the BankAccount class and
+   *its subclasses. 
 */
+
+
 public class AccountTester
 {  
    public static void main(String[] args)
@@ -61,7 +63,8 @@ public class AccountTester
       momsSavings.transfer(1000, harrysChecking);
       harrysChecking.withdraw(400);      
 
-      // Simulate end of month
+      //Simulate end of month
+      
       momsSavings.addInterest();
       harrysChecking.deductFees();
       
@@ -95,51 +98,60 @@ package bankaccountadvanced;
 public class BankAccountAdvanced {
 
     public BankAccountAdvanced()
-   {  
+   	{  
       balance = 0;
-   }
+   	}
 
-   /**
-      Constructs a bank account with a given balance.
-      @param initialBalance the initial balance
+   /*
+      *Constructs a bank account with a given balance.
+      *@param initialBalance the initial balance
    */
+  
    public BankAccountAdvanced(double initialBalance)
    {  
       balance = initialBalance;
    }
  
-   /**
-      Deposits money into the bank account.
-      @param amount the amount to deposit
+   /*
+      *Deposits money into the bank account.
+      *@param amount the amount to deposit
    */
+   
+   
    public void deposit(double amount) 
    {  
       balance = balance + amount;
    }
 
-   /**
-      Withdraws money from the bank account.
-      @param amount the amount to withdraw
+   /*
+      *Withdraws money from the bank account.
+      *@param amount the amount to withdraw
    */
+   
+   
    public void withdraw(double amount) 
    {  
       balance = balance - amount;
    }
 
-   /**
-      Gets the current balance of the bank account.
-      @return the current balance
+   /*
+      *Gets the current balance of the bank account.
+      *@return the current balance
    */
+   
+   
    public double getBalance()
    {  
       return balance; 
    }
    
-   /**
-      Transfers money from the bank account to another account
-      @param amount the amount to transfer
-      @param other the other account
+   /*
+      *Transfers money from the bank account to another account
+      *@param amount the amount to transfer
+      *@param other the other account
    */
+   
+   
    public void transfer(double amount, BankAccountAdvanced other)
    {  
       withdraw(amount);
@@ -147,9 +159,9 @@ public class BankAccountAdvanced {
    }
    
     public String toString()
-   {
+    {
        return ("Balance: $" + balance);
-   }
+    }
 
    protected double balance;
    protected static final int MINIMUM_BALANCE= 25;
@@ -164,23 +176,29 @@ public class BankAccountAdvanced {
 package bankaccountadvanced;
 
 
-/**
-   An account that earns interest at a fixed rate.
+/*
+   *An account that earns interest at a fixed rate.
 */
+
+
 public class SavingsAccount extends BankAccountAdvanced
 {  
-   /**
-      Constructs a bank account with a given interest rate.
-      @param rate the interest rate
+   /*
+      *Constructs a bank account with a given interest rate.
+      *@param rate the interest rate
    */
+   
+   
    public SavingsAccount(double rate) 
    {  
       interestRate = rate;
    }
 
-   /**
-      Adds the earned interest to the account balance.
+   /*
+      *Adds the earned interest to the account balance.
    */
+   
+   
    public void addInterest() 
    {   
       double interest = MINIMUM_BALANCE * interestRate / 100;
@@ -200,10 +218,12 @@ package bankaccountadvanced;
 
 public class CheckingAccount extends BankAccountAdvanced
 {  
-   /**
-      Constructs a checking account with a given balance.
-      @param initialBalance the initial balance
+   /*
+      *Constructs a checking account with a given balance.
+      *@param initialBalance the initial balance
    */
+   
+   
    public CheckingAccount(double initialBalance)
    {  
       // Construct superclass
@@ -231,10 +251,12 @@ public class CheckingAccount extends BankAccountAdvanced
       else super.withdraw(amount); 
    }
 
-   /**
-      Deducts the accumulated fees and resets the
-      transaction count.
+   /*
+      *Deducts the accumulated fees and resets the
+      *transaction count.
    */
+   
+   
    public void deductFees()
    {  
       if (transactionCount > FREE_TRANSACTIONS)
